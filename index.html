@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Portifolio</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="HTML5 website template">
+  <meta name="keywords" content="global, template, html, sass, jquery">
+  <meta name="author" content="Bucky Maler">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <style>
+    .text-center{
+      text-align: center;
+      height: 68px;
+    }
+    .flex-text{
+      display: flex;
+    }
+    .flex-text h1{
+      width: 50%;
+      text-align: center;
+    }
+    .cta span.btn-background{
+      left: 0px;
+    }
+    .slider--item-description{
+      font-size: 12px;
+    }
+    .work--lockup .slider--item-center .slider--item-title{
+      margin: 0px;
+    }
+    .work--lockup .slider--item-description.my-btn{
+      -webkit-appearance: button;
+      cursor: pointer;
+      padding: 0 20px;
+      line-height: 30px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 700;
+      text-transform: uppercase;
+      background-color: #0f33ff;
+      border: none;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+    .work--lockup .slider--item-center .slider--item-description.my-btn{
+      display: flex;
+    }
+    .side-nav{
+      width: 105px;
+    }
+    .about--banner h2:before{
+      background-color: transparent;
+    }
+    .my-btn svg{
+      overflow: auto;
+      width: 16px;
+      align-self: center;
+      padding-left: 5px;
+      fill: white;
+    }
+    .contact--lockup .modal--options li:nth-child(1){
+      background-color: #25d366;
+    }
+    .intro--banner img{
+      bottom: -45px;
+      opacity: 0.5;
+      left: -12px;
+    }
+    .intro--banner::before{
+      bottom: -47px;
+    }
+    .intro--banner::after{
+      bottom: -47px;
+    }
+    .cmd {
+      border-top: 2em solid rgba(230, 230, 230, 0.7);
+      box-shadow: 0 0.1em 1em 0 rgba(0, 0, 0, 0.4);
+      position: relative;
+      border-radius: 3px 3px 0 0;
+      background-color: #222;
+      height: 265px;
+      width: 550px;
+      margin-left: auto;
+      bottom: 50px;
+    }
+
+    .cmd:before {
+      display: block;
+      position: absolute;
+      content: '';
+      top: -1.25em;
+      left: 1em;
+      width: 0.5em;
+      height: 0.5em;
+      border-radius: 50%;
+      background-color: #f44;
+      box-shadow: 0 0 0 2px #f44, 1.5em 0 0 2px #9b3, 3em 0 0 2px #fb5;
+    }
+
+    .cmd > * {
+      display: block;
+    }
+
+    .cmd p {
+      color: lime;
+      font-family: "Courier";
+      font-size: 14px;
+      margin: 10px 0 0 10px;
+    }
+
+    .cmd .scroll {
+      overflow-y: scroll;
+      height: 264px;
+    }
+    @media screen and (max-width: 800px) {
+      .cmd {
+        display: none;
+      }
+      .flex-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      div.about--options{
+        display: flex;
+        margin-top: 20px;
+      }
+    }
+  </style>
+  <script>
+    window.onload = start;
+    var div
+    function start(){
+      div = document.getElementById('log');
+      console.log(div)
+      var textos = ['Alexsader Rogerio',
+        '\"...\"',
+        '\"Web Design\"',
+        '\"...\"',
+        '\"...\"'
+      ];
+      rodape(textos)
+    }
+
+    function escrever(str, done) {
+        var char = str.split('').reverse();
+        var typer = setInterval(function() {
+            if (!char.length) {
+                clearInterval(typer);
+                return setTimeout(done, 500); // só para esperar um bocadinho
+            }
+            var next = char.pop();
+            div.innerHTML += next;
+        }, 100);
+    }
+
+    function limpar(done) {
+        var char = div.innerHTML;
+        var nr = char.length;
+        var typer = setInterval(function() {
+            if (nr-- == 0) {
+                clearInterval(typer);
+                return done();
+            }
+            div.innerHTML = char.slice(0, nr);
+        }, 100);
+    }
+
+    function rodape(conteudos, el) {
+        var atual = -1;
+      function prox(cb){
+        if (atual < conteudos.length - 1) atual++;
+        else atual = 0;
+        var str = conteudos[atual];
+        escrever(str, function(){
+          limpar(prox);
+        });
+      }
+      prox(prox);
+    }
+  </script>
+</head>
+<body>
+
+<!-- notification for small viewports and landscape oriented smartphones -->
+<!-- <div class="device-notification">
+  <a class="device-notification--logo" href="#0">
+    <img src="assets/img/logo.png" alt="Global">
+    <p>Global</p>
+  </a>
+</div> -->
+
+<div class="perspective effect-rotate-left">
+  <div class="container"><div class="outer-nav--return"></div>
+    <div id="viewport" class="l-viewport">
+      <div class="l-wrapper">
+        <header class="header">
+          <a class="header--logo" href="#0">
+            <!-- <img src="assets/img/logo.png" alt="Global">
+            <p>Global</p> -->
+          </a>
+          <button class="header--cta cta">Contato</button>
+          <div class="header--nav-toggle">
+            <span></span>
+          </div>
+        </header>
+        <nav class="l-side-nav">
+          <ul class="side-nav">
+            <li class="is-active"><span>Apresentação</span></li>
+            <li><span>Trabalhos</span></li> <!-- Work -->
+            <li><span>Currículo</span></li> <!-- About -->
+            <li><span>Contato</span></li> <!-- Contact -->
+          </ul>
+        </nav>
+        <ul class="l-main-content main-content">
+          <li class="l-section section section--is-active">
+            <div class="intro">
+              <div class="intro--banner">
+                <h1 id="log" class="text-center"></h1>
+                <div class="flex-text">
+                  <h1>Design</h1>
+                  <h1>&lt;/code></h1>
+                </div>
+                <button class="cta">Contato
+                  <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 118" style="enable-background:new 0 0 150 118;" xml:space="preserve">
+                  <g transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)">
+                    <path d="M870,1167c-34-17-55-57-46-90c3-15,81-100,194-211l187-185l-565-1c-431,0-571-3-590-13c-55-28-64-94-18-137c21-20,33-20,597-20h575l-192-193C800,103,794,94,849,39c20-20,39-29,61-29c28,0,63,30,298,262c147,144,272,271,279,282c30,51,23,60-219,304C947,1180,926,1196,870,1167z"/>
+                  </g>
+                  </svg>
+                  <span class="btn-background"></span>
+                </button>
+                <img src="assets/img/introduction-visual.png" alt="Welcome">
+              </div>
+            </div>
+          </li>
+          <li class="l-section section">
+            <div class="work">
+              <h2>Trabalhos nos quais participei</h2>
+              <div class="work--lockup">
+                <ul class="slider">
+                  <li class="slider--item slider--item-left">
+                    <a href="#0">
+                      <div class="slider--item-image">
+                        <img src="assets/img/danimachini.jpg" alt="Victory">
+                      </div>
+                      <a href="https://www.danimachini.com/">
+                        <button class="my-btn slider--item-description">
+                          <span>Link</span>
+                          <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 118" style="enable-background:new 0 0 150 118;" xml:space="preserve">
+                            <g transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)">
+                              <path d="M870,1167c-34-17-55-57-46-90c3-15,81-100,194-211l187-185l-565-1c-431,0-571-3-590-13c-55-28-64-94-18-137c21-20,33-20,597-20h575l-192-193C800,103,794,94,849,39c20-20,39-29,61-29c28,0,63,30,298,262c147,144,272,271,279,282c30,51,23,60-219,304C947,1180,926,1196,870,1167z"/>
+                            </g>
+                          </svg>
+                        </button>
+                      </a>
+                      <p class="slider--item-title">Emoções Essenciais</p>
+                      <p class="slider--item-description">Site para apresentação e venda de produtos naturais, livro de autoria própria, sessão de blog, sessão de comentários, e agenda para marcar consultas online.</p>
+                    </a>
+                  </li>
+                  <li class="slider--item slider--item-center">
+                    <a href="#0">
+                      <div class="slider--item-image">
+                        <img src="assets/img/mundodosaber.jpg" alt="Metiew and Smith">
+                      </div>
+                      <a href="https://mundodosaber.com.br/">
+                        <button class="my-btn slider--item-description">
+                          <span>Link</span>
+                          <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 118" style="enable-background:new 0 0 150 118;" xml:space="preserve">
+                            <g transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)">
+                              <path d="M870,1167c-34-17-55-57-46-90c3-15,81-100,194-211l187-185l-565-1c-431,0-571-3-590-13c-55-28-64-94-18-137c21-20,33-20,597-20h575l-192-193C800,103,794,94,849,39c20-20,39-29,61-29c28,0,63,30,298,262c147,144,272,271,279,282c30,51,23,60-219,304C947,1180,926,1196,870,1167z"/>
+                            </g>
+                          </svg>
+                        </button>
+                      </a>
+                      <p class="slider--item-title">Mundo do saber</p>
+                      <p class="slider--item-description">Site de plataformas de atividades pedagógicas, com jogos educativos e lições online.</p>
+                    </a>
+                  </li>
+                  <li class="slider--item slider--item-right">
+                    <a href="#0">
+                      <div class="slider--item-image">
+                        <img src="assets/img/sigm.jpg" alt="Alex Nowak">
+                      </div>
+                      <a href="https://sigm.campinas.sp.gov.br/sgm_web_adm_sistema/">
+                        <button class="my-btn slider--item-description">
+                          <span>Link</span>
+                          <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 118" style="enable-background:new 0 0 150 118;" xml:space="preserve">
+                            <g transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)">
+                              <path d="M870,1167c-34-17-55-57-46-90c3-15,81-100,194-211l187-185l-565-1c-431,0-571-3-590-13c-55-28-64-94-18-137c21-20,33-20,597-20h575l-192-193C800,103,794,94,849,39c20-20,39-29,61-29c28,0,63,30,298,262c147,144,272,271,279,282c30,51,23,60-219,304C947,1180,926,1196,870,1167z"/>
+                            </g>
+                          </svg>
+                        </button>
+                      </a>
+                      <p class="slider--item-title">SIGM</p>
+                      <p class="slider--item-description">Sistema Integrado de Governança Municipal Prefeitura Municipal de Campinas.</p>
+                    </a>
+                  </li>
+                </ul>
+                <div class="slider--prev">
+                  <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                  viewBox="0 0 150 118" style="enable-background:new 0 0 150 118;" xml:space="preserve">
+                  <g transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)">
+                    <path d="M561,1169C525,1155,10,640,3,612c-3-13,1-36,8-52c8-15,134-145,281-289C527,41,562,10,590,10c22,0,41,9,61,29
+                    c55,55,49,64-163,278L296,510h575c564,0,576,0,597,20c46,43,37,109-18,137c-19,10-159,13-590,13l-565,1l182,180
+                    c101,99,187,188,193,199c16,30,12,57-12,84C631,1174,595,1183,561,1169z"/>
+                  </g>
+                  </svg>
+                </div>
+                <div class="slider--next">
+                  <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 118" style="enable-background:new 0 0 150 118;" xml:space="preserve">
+                  <g transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)">
+                    <path d="M870,1167c-34-17-55-57-46-90c3-15,81-100,194-211l187-185l-565-1c-431,0-571-3-590-13c-55-28-64-94-18-137c21-20,33-20,597-20h575l-192-193C800,103,794,94,849,39c20-20,39-29,61-29c28,0,63,30,298,262c147,144,272,271,279,282c30,51,23,60-219,304C947,1180,926,1196,870,1167z"/>
+                  </g>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="l-section section">
+            <div class="about">
+              <div class="about--banner">
+                <h2>Minhas<br>Formações<br>Experiencia<br></h2>
+                <a href="https://www.linkedin.com/in/alexsander-rogerio-130274108/">Acessar pelo Linkedin
+                  <span>
+                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 150 118" style="enable-background:new 0 0 150 118;" xml:space="preserve">
+                    <g transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)">
+                      <path d="M870,1167c-34-17-55-57-46-90c3-15,81-100,194-211l187-185l-565-1c-431,0-571-3-590-13c-55-28-64-94-18-137c21-20,33-20,597-20h575l-192-193C800,103,794,94,849,39c20-20,39-29,61-29c28,0,63,30,298,262c147,144,272,271,279,282c30,51,23,60-219,304C947,1180,926,1196,870,1167z"/>
+                    </g>
+                    </svg>
+                  </span>
+                </a>
+
+                <div class="cmd">
+                  <div class="scroll">
+                    <p id="text"><b>Error:</b> Oh dear. Javascript does not appear to be activated on your browser. So I'm afraid I can't run your test.</p>
+                  </div>
+                </div>
+
+              </div>
+              <div class="about--options">
+                <a href="assets\doc\CV_Alexsander Pereira.pdf" download>
+                  <h3>PDF Curriculo</h3>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="l-section section">
+            <div class="contact">
+              <div class="contact--lockup">
+                <div class="modal">
+                  <div class="modal--information">
+                    <p>Campinas, Brazil</p>
+                    <a href="mailto:alexrope7@gmail.com">alexrope7@gmail.com</a>
+                    <a href="">+55 19 9989069726</a>
+                  </div>
+                  <ul class="modal--options">
+                    <li><a href="https://wa.me/19989069726">Whatsapp</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <ul class="outer-nav">
+    <li class="is-active">Apresentação</li>
+    <li>Trabalhos</li>
+    <li>Currículo</li>
+    <li>Contato</li>
+  </ul>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-2.2.4.min.js"><\/script>')</script>
+<script src="assets/js/functions-min.js"></script>
+</body>
+</html>
