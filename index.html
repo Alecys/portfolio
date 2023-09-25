@@ -33,7 +33,8 @@
     .work--lockup .slider--item-center .slider--item-title{
       margin: 0px;
     }
-    .work--lockup .slider--item-description.my-btn{
+    .work--lockup .slider--item-description.my-btn,
+    button, .button{
       -webkit-appearance: button;
       cursor: pointer;
       padding: 0 20px;
@@ -120,6 +121,14 @@
     .intro--banner button.cta{
           z-index: 1;
     }
+    button, .button{
+      overflow: hidden;
+      border-radius: 0.25rem ;
+      padding: 5px 20px !important;
+    }
+    .contact--lockup .modal--options a{
+      padding: 0px;
+    }
     @media screen and (max-width: 800px) {
       .cmd {
         display: none;
@@ -133,6 +142,7 @@
         margin-top: 20px;
       }
     }
+    
     @media (max-width: 600px){
       .intro--banner img {
           position: fixed;
@@ -387,7 +397,7 @@
                     <a href="">+55 19 9989069726</a>
                   </div>
                   <ul class="modal--options">
-                    <li><a href="https://wa.me/19989069726">Whatsapp</a></li>
+                    <li class="button"><a href="https://wa.me/19989069726">Whatsapp</a></li>
                   </ul>
                 </div>
               </div>
