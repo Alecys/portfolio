@@ -21,6 +21,9 @@
       width: 50%;
       text-align: center;
     }
+    .intro--banner h1{
+      text-shadow: 0 0.5rem 1rem rgba(0,0,0,.85);
+    }
     .cta span.btn-background{
       left: 0px;
     }
@@ -123,12 +126,37 @@
       }
       .flex-text {
         display: flex;
-        flex-direction: column;
         align-items: center;
       }
       div.about--options{
         display: flex;
         margin-top: 20px;
+      }
+    }
+    @media (max-width: 600px){
+      .intro--banner img {
+          position: fixed;
+          bottom: 0px;
+          left: 0px;
+          top: 80px;
+          width: 100%;
+          display: block;
+      }
+      .intro--banner h1{
+        font-size: 35px;
+      }
+      .intro--banner{
+        text-align: center;
+      }
+      .intro--banner > h1{
+        height: auto;
+        min-height: 45px;
+      }
+      ul.outer-nav.is-vis > li{
+        font-size: 20px;
+      }
+      .outer-nav>li::before{
+        height: 5px;
       }
     }
   </style>
@@ -223,7 +251,7 @@
               <div class="intro--banner">
                 <h1 id="log" class="text-center"></h1>
                 <div class="flex-text">
-                  <h1>Design</h1>
+                  <h1>design</h1>
                   <h1>&lt;/code></h1>
                 </div>
                 <img src="assets/img/introduction-visual.png" alt="Welcome">
